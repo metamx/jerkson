@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <prerequisites>
@@ -9,13 +7,13 @@
     </prerequisites>
 
     <groupId>com.codahale</groupId>
-    <artifactId>jerkson_2.9.1</artifactId>
-    <version>0.6.0-SNAPSHOT</version>
+    <artifactId>jerkson_2.9.2</artifactId>
+    <version>0.6.0-mmx</version>
     <name>Jerkson for Scala</name>
 
     <properties>
-        <scala.version>2.9.1</scala.version>
-        <jackson.version>2.0.2</jackson.version>
+        <scala.version>2.9.2</scala.version>
+        <jackson.version>2.1.4</jackson.version>
     </properties>
 
     <developers>
@@ -34,6 +32,12 @@
         </license>
     </licenses>
 
+    <scm>
+        <connection>scm:git:ssh://git@github.com/metamx/jerkson.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/metamx/jerkson.git</developerConnection>
+        <url>http://www.github.com/metamx/jerkson</url>
+    </scm>
+
     <repositories>
         <repository>
             <id>repo.codahale.com</id>
@@ -45,12 +49,14 @@
         </repository>
     </repositories>
 
+    <!--
     <distributionManagement>
         <repository>
             <id>repo.codahale.com</id>
             <url>scp://codahale.com/home/codahale/repo.codahale.com</url>
         </repository>
     </distributionManagement>
+    -->
 
     <dependencies>
         <dependency>
@@ -70,7 +76,8 @@
         </dependency>
         <dependency>
             <groupId>com.codahale</groupId>
-            <artifactId>simplespec_${scala.version}</artifactId>
+            <!-- simplespec is still on scala 2.9.1 -->
+            <artifactId>simplespec_2.9.1</artifactId>
             <version>0.5.2</version>
             <scope>test</scope>
         </dependency>
@@ -105,6 +112,14 @@
             </build>
         </profile>
     </profiles>
+
+    <distributionManagement>
+        <repository>
+            <id>central-local</id>
+            <name>Central</name>
+            <url>https://metamx.artifactoryonline.com/metamx/libs-releases-local</url>
+        </repository>
+    </distributionManagement>
 
     <build>
         <plugins>
